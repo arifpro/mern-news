@@ -1,5 +1,5 @@
 .features {
-  height: 590px;
+  /* height: 590px; */
   background: #3c444c;
   box-shadow: 0px 30px 40px rgba(0, 0, 0, 0.1);
   display: flex;
@@ -46,31 +46,98 @@
 
 .featuresItems__title {
   height: 28px;
-
-  font-family: Zilla Slab;
+  font-family: "Zilla Slab";
   font-style: normal;
   font-weight: normal;
   font-size: 24px;
   line-height: 28px;
-  /* identical to box height, or 117% */
-
   text-align: center;
-
   color: #ffffff;
   margin-top: 1rem;
 }
 .featuresItems__desc {
   height: 66px;
-
-  font-family: Montserrat;
+  font-family: "Montserrat";
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
   line-height: 22px;
-  /* or 157% */
-
   text-align: center;
-
   color: #cbcfd4;
   padding: 0 4rem;
+}
+
+@media (max-width: 1200px) {
+  .featuresTitle {
+    padding-top: 2rem;
+  }
+  .featuresDesc {
+    font-size: 17px;
+    line-height: 30px;
+    padding: 0 10rem;
+    margin-top: 1rem;
+  }
+  .featuresItems {
+    margin-bottom: 5rem;
+  }
+  .featuresItems section {
+    margin-top: 3.5rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .featuresTitle {
+    padding-top: 2rem;
+  }
+  .featuresDesc {
+    font-size: 17px;
+    line-height: 30px;
+    padding: 0 10rem;
+    margin-top: 1rem;
+  }
+  .featuresItems {
+    margin-bottom: 5rem;
+  }
+  .featuresItems section {
+    margin-top: 3.5rem;
+  }
+  .featuresItems__desc {
+    height: 66px;
+    font-size: 14px;
+    line-height: 22px;
+    padding: 0 2rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .featuresItems {
+    margin-bottom: 7rem;
+  }
+  .featuresItems__desc {
+    height: 66px;
+    font-size: 14px;
+    line-height: 22px;
+    padding: 0 1.5rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .featuresTitle {
+    font-size: 40px;
+    line-height: 56px;
+    padding-top: 2rem;
+  }
+  .featuresDesc {
+    font-size: 17px;
+    line-height: 30px;
+    padding: 0 3rem;
+    margin-top: 1rem;
+  }
+  .featuresItems {
+    margin: 3rem 0;
+    flex-direction: column;
+  }
+  .featuresItems section {
+    margin-top: 3.5rem;
+  }
 }

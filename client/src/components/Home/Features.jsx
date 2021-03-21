@@ -22,7 +22,11 @@ const Features = () => {
       <div className={styles.featuresItems}>
         <section>
           {/* <IoPersonCircle className={styles.featuresItems__icon} /> */}
-          <img src={personCircle} alt="personCircle"/>
+          <img
+            src={personCircle}
+            alt="personCircle"
+            style={{ width: "44px" }}
+          />
           <p className={styles.featuresItems__title}>Magna Aliqua</p>
           <p className={styles.featuresItems__desc}>
             Sed ut perspiciatis unde omnis iste natus error sit voluptatem
@@ -31,7 +35,7 @@ const Features = () => {
         </section>
         <section>
           {/* <MdPhonelink className={styles.featuresItems__icon} /> */}
-          <img src={phonelink} alt="phonelink"/>
+          <img src={phonelink} alt="phonelink" />
           <p className={styles.featuresItems__title}>Consectetur Elit</p>
           <p className={styles.featuresItems__desc}>
             Sed ut perspiciatis unde omnis iste natus error sit voluptatem
@@ -40,7 +44,7 @@ const Features = () => {
         </section>
         <section>
           {/* <MdStoreMallDirectory className={styles.featuresItems__icon} /> */}
-          <img src={storeMallDirectory} alt="storeMallDirectory"/>
+          <img src={storeMallDirectory} alt="storeMallDirectory" />
           <p className={styles.featuresItems__title}>Minim Veniam</p>
           <p className={styles.featuresItems__desc}>
             Sed ut perspiciatis unde omnis iste natus error sit voluptatem

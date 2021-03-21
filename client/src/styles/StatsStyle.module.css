@@ -124,6 +124,12 @@
   .contentDesc {
     font-size: 14px;
   }
+  .contentLocation {
+    margin-top: 1.2rem;
+    padding: 0 4rem;
+    font-size: 14px;
+    line-height: 22px;
+  }
 }
 
 @media (max-width: 800px) {
@@ -147,6 +153,12 @@
   .contentDesc {
     font-size: 12px;
   }
+  .contentLocation {
+    margin-top: 1rem;
+    padding: 0 2rem;
+    font-size: 11px;
+    line-height: 12px;
+  }
 }
 
 @media (max-width: 650px) {
@@ -169,6 +181,12 @@
   }
   .contentDesc {
     font-size: 10px;
+  }
+  .contentLocation {
+    margin-top: 0.7rem;
+    padding: 0 1rem;
+    font-size: 10px;
+    line-height: 11px;
   }
 }
 
@@ -197,5 +215,11 @@
   }
   .contentDesc {
     font-size: 14px;
+  }
+  .contentLocation {
+    margin-top: 2rem;
+    padding: 0 4rem;
+    font-size: 14px;
+    line-height: 22px;
   }
 }

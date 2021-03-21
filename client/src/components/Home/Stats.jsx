@@ -1,4 +1,5 @@
 import styles from "../../styles/StatsStyle.module.css";
+import useWindowDimensions from "../../HOC/useWindowDimensions";
 
 // icons
 import { MdForum, MdPlace } from "react-icons/md";
@@ -8,6 +9,30 @@ import dot from "../../assets/icons/dot.png";
 import MainButton from "../Custom/MainButton";
 
 const Stats = () => {
+  const { width } = useWindowDimensions();
+  let displayWidth;
+  let displayHeight;
+
+  if (width > 1200) {
+    displayWidth = "116px";
+    displayHeight = "28px";
+  } else if (width > 800) {
+    displayWidth = "105px";
+    displayHeight = "25px";
+  } else if (width > 700) {
+    displayWidth = "105px";
+    displayHeight = "25px";
+  } else if (width > 650) {
+    displayWidth = "105px";
+    displayHeight = "25px";
+  } else if (width > 500) {
+    displayWidth = "105px";
+    displayHeight = "20px";
+  } else {
+    displayWidth = "116px";
+    displayHeight = "28px";
+  }
+
   return (
     <main className={styles.stats}>
       <section className={`${styles.card} ${styles.card1}`}>
@@ -36,8 +61,9 @@ const Stats = () => {
           <MainButton
             text="GET DIRECTIONS"
             arrow={false}
-            width="116px"
-            height="30px"
+            width={displayWidth}
+            height={displayHeight}
+            style={{ fontSize: "8px", fontWeight: "bold" }}
           />
         </div>
       </section>
