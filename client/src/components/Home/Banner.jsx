@@ -1,22 +1,31 @@
 import { Carousel } from "react-responsive-carousel";
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 import styles from "../../styles/BannerStyle.module.css";
 
+// icons
+import { MdKeyboardArrowRight } from "react-icons/md";
+
 // images
-import banner1 from "../../assets/banner/banner1.png";
-import banner2 from "../../assets/banner/banner1.png";
+import banner from "../../assets/banner/banner1.png";
 
 const bannerData = [
   {
     id: "1",
-    img: banner1,
+    img: banner,
     title: "Lorem Ipsum Dolor Sit Amet",
     desc:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   },
   {
     id: "2",
-    img: banner2,
+    img: banner,
+    title: "Lorem Ipsum Dolor Sit Amet 2",
+    desc:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 2",
+  },
+  {
+    id: "3",
+    img: banner,
     title: "Lorem Ipsum Dolor Sit Amet 2",
     desc:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 2",
@@ -32,8 +41,8 @@ const Banner = () => {
         showStatus={false}
         useKeyboardArrows
         showArrows={true}
-        autoPlay={true}
-        infiniteLoop={true}
+        // autoPlay={true}
+        // infiniteLoop={true}
       >
         {bannerData?.map((data) => (
           <div
@@ -47,8 +56,13 @@ const Banner = () => {
             <div className={styles.desc}>
               <p>{data.desc}</p>
             </div>
-            <div>
-              <button className={styles.getStartedBtn}>GET STARTED</button>
+            <div style={{ display: "flex" }}>
+              <div style={{ display: "flex" }}>
+                <button className={styles.getStartedBtn}>GET STARTED</button>
+                <p className={styles.getStartedBtnIcon}>
+                  <MdKeyboardArrowRight />
+                </p>
+              </div>
               <button className={styles.findOutBtn}>FIND OUT MORE</button>
             </div>
           </div>
