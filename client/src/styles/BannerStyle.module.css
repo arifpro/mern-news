@@ -1,0 +1,82 @@
+.my_slide {
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  font-family: "Zilla Slab";
+  color: #fff;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 44px;
+  line-height: 56px;
+}
+
+.desc {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 19px;
+  line-height: 30px;
+  text-align: center;
+  color: #ffffff;
+  width: 700px;
+  margin: 2rem;
+}
+
+.getStartedBtn {
+  width: 190px;
+  height: 40px;
+  border: none;
+  background: linear-gradient(90deg, #f27a54 -21.05%, #a154f2 121.05%);
+  border-radius: 20px;
+  color: #ffffff;
+  margin-right: 0.6rem;
+}
+
+.findOutBtn {
+  width: 190px;
+  height: 40px;
+  border: 1px solid #ffffff;
+  box-sizing: border-box;
+  border-radius: 20px;
+  color: #ffffff;
+  background: transparent;
+  margin-left: 0.6rem;
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 34px;
+  }
+  .desc {
+    font-size: 15px;
+    width: 500px;
+  }
+}
+
+@media (max-width: 500px) {
+  .title {
+    font-size: 30px;
+  }
+  .desc {
+    font-size: 15px;
+    width: 350px;
+  }
+  .my_slide {
+    height: 300px;
+  }
+}
+
+@media (max-width: 360px) {
+  .title {
+    font-size: 25px;
+  }
+  .desc {
+    font-size: 14px;
+    width: 300px;
+  }
+}
