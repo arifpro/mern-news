@@ -9,12 +9,12 @@ const MainButton = (props) => {
     <main style={{ display: "flex" }}>
       <button
         className={styles.getStartedBtn}
-        style={{ width, height, ...props.style }}
+        style={{ width, height, ...props.style, color: props.color }}
       >
         {props.text}
       </button>
       {props.arrow !== false && (
-        <p className={styles.getStartedBtnIcon}>
+        <p className={styles.getStartedBtnIcon} style={{ color: props.color }}>
           <MdKeyboardArrowRight />
         </p>
       )}
