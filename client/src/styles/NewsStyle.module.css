@@ -1,0 +1,273 @@
+.news {
+  padding: 0 3.5rem;
+}
+
+.title {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: bold;
+  font-size: 48px;
+  line-height: 56px;
+  text-align: center;
+  padding-top: 3rem;
+  background: -webkit-linear-gradient(180deg, #a154f2 40.64%, #f27a54 89.23%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.cardSection {
+  width: 330px;
+  height: 422px;
+  background: #3c444d;
+  box-shadow: 0px 30px 40px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  margin-top: 3rem;
+}
+
+.cardSection img {
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  width: 100%;
+}
+
+.cardTitle {
+  height: 28px;
+  font-family: "Zilla Slab";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 28px;
+  color: #ffffff;
+  padding: 0 30px;
+}
+
+.cardDesc {
+  height: 88px;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 22px;
+  color: #cbcfd4;
+  padding: 0 30px;
+}
+
+.btnSection {
+  display: flex;
+  justify-content: center;
+  margin-left: -26px;
+}
+
+.grid_container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  justify-content: space-evenly;
+  /* background-color: #2196f3; */
+}
+
+@media (max-width: 1200px) {
+  .cardSection {
+    width: 255px;
+    height: 350px;
+  }
+  .cardTitle {
+    height: 10px;
+    font-size: 20px;
+    line-height: 10px;
+    padding: 0 20px;
+  }
+  .cardDesc {
+    height: 88px;
+    font-size: 14px;
+    line-height: 22px;
+    padding: 0 20px;
+  }
+  .btnSection {
+    margin-left: -26px;
+  }
+}
+
+@media (max-width: 950px) {
+  .cardSection {
+    width: 235px;
+    height: 350px;
+  }
+  .cardTitle {
+    height: 10px;
+    font-size: 20px;
+    line-height: 10px;
+    padding: 0 20px;
+  }
+  .cardDesc {
+    height: 105px;
+    font-size: 14px;
+    line-height: 22px;
+    padding: 0 20px;
+  }
+  .btnSection {
+    margin-left: -26px;
+  }
+}
+
+@media (max-width: 850px) {
+  .cardSection {
+    width: 215px;
+    height: 330px;
+  }
+  .cardTitle {
+    height: 10px;
+    font-size: 18px;
+    line-height: 10px;
+    padding: 0 20px;
+  }
+  .cardDesc {
+    height: 95px;
+    font-size: 12px;
+    line-height: 22px;
+    padding: 0 20px;
+  }
+  .btnSection {
+    margin-left: -22px;
+  }
+}
+
+@media (max-width: 768px) {
+  .news {
+    padding: 0 2rem;
+  }
+  .grid_container {
+    grid-template-columns: auto auto;
+  }
+  .cardSection {
+    width: 280px;
+    height: 350px;
+  }
+  .cardTitle {
+    height: 10px;
+    font-size: 18px;
+    line-height: 10px;
+    padding: 0 20px;
+  }
+  .cardDesc {
+    height: 85px;
+    font-size: 12px;
+    line-height: 22px;
+    padding: 0 20px;
+  }
+  .btnSection {
+    margin-left: -22px;
+  }
+}
+
+@media (max-width: 675px) {
+  .news {
+    padding: 0 2rem;
+  }
+  .grid_container {
+    grid-template-columns: auto auto;
+  }
+  .cardSection {
+    width: 250px;
+    height: 350px;
+  }
+  .cardTitle {
+    height: 10px;
+    font-size: 18px;
+    line-height: 10px;
+    padding: 0 20px;
+  }
+  .cardDesc {
+    height: 90px;
+    font-size: 12px;
+    line-height: 22px;
+    padding: 0 20px;
+  }
+  .btnSection {
+    margin-left: -22px;
+  }
+}
+
+@media (max-width: 630px) {
+  .news {
+    padding: 0 1.8rem;
+  }
+  .grid_container {
+    grid-template-columns: auto auto;
+  }
+  .cardSection {
+    width: 235px;
+    height: 335px;
+  }
+  .cardTitle {
+    height: 10px;
+    font-size: 18px;
+    line-height: 10px;
+    padding: 0 20px;
+  }
+  .cardDesc {
+    height: 90px;
+    font-size: 12px;
+    line-height: 22px;
+    padding: 0 20px;
+  }
+  .btnSection {
+    margin-left: -22px;
+  }
+}
+
+@media (max-width: 550px) {
+  .news {
+    padding: 0 1rem;
+  }
+  .grid_container {
+    grid-template-columns: auto auto;
+  }
+  .cardSection {
+    width: 220px;
+    height: 325px;
+  }
+  .cardTitle {
+    height: 10px;
+    font-size: 18px;
+    line-height: 10px;
+    padding: 0 20px;
+  }
+  .cardDesc {
+    height: 90px;
+    font-size: 12px;
+    line-height: 22px;
+    padding: 0 20px;
+  }
+  .btnSection {
+    margin-left: -22px;
+  }
+}
+
+@media (max-width: 500px) {
+  .news {
+    padding: 0 0.7rem;
+  }
+  .grid_container {
+    grid-template-columns: auto;
+  }
+  .cardSection {
+    width: 300px;
+    height: 370px;
+  }
+  .cardTitle {
+    height: 10px;
+    font-size: 22px;
+    line-height: 10px;
+    padding: 0 20px;
+  }
+  .cardDesc {
+    height: 90px;
+    font-size: 14px;
+    line-height: 22px;
+    padding: 0 20px;
+  }
+  .btnSection {
+    margin-left: -22px;
+  }
+}

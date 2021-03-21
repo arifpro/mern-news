@@ -1,6 +1,6 @@
 import styles from "../../styles/FeaturesStyle.module.css";
-import { IoPersonCircle } from "react-icons/io5";
-import { MdPhonelink, MdStoreMallDirectory } from "react-icons/md";
+// import { IoPersonCircle } from "react-icons/io5";
+// import { MdPhonelink, MdStoreMallDirectory } from "react-icons/md";
 
 // icons
 import personCircle from "../../assets/icons/account_circle.png";
