@@ -14,10 +14,25 @@ code {
     monospace;
 }
 
+.container {
+  padding: 0 10rem;
+}
+
 a {
   text-decoration: none;
 }
 
 img {
   border-style: none;
+}
+
+h1 {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }

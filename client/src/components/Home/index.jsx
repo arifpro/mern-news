@@ -5,9 +5,9 @@ import Features from "./Features";
 import News from "./News";
 import CTA from "./CTA";
 
-const Home = () => {
+const Home = (props) => {
   return (
-    <Layout>
+    <Layout {...props}>
       <Banner />
       <Stats />
       <Features />
