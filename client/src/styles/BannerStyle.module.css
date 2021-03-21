@@ -4,6 +4,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  /* filter: drop-shadow(0px 30px 40px rgba(0, 0, 0, 0.1)); */
 }
 
 .title {
@@ -27,7 +28,7 @@
   margin: 2rem;
 }
 
-.getStartedBtn {
+/* .getStartedBtn {
   width: 190px;
   height: 40px;
   border: none;
@@ -36,7 +37,7 @@
   border-radius: 20px;
   color: #ffffff;
   margin-right: 1rem;
-}
+} */
 
 .findOutBtn {
   width: 190px;
@@ -62,6 +63,10 @@
   height: 27px;
 }
 
+.btn {
+  display: flex;
+}
+
 @media (max-width: 768px) {
   .title {
     font-size: 34px;
@@ -81,7 +86,16 @@
     width: 350px;
   }
   .my_slide {
-    height: 300px;
+    height: 430px;
+  }
+  .btn {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .findOutBtn {
+    margin-right: 1rem;
+    margin-top: 1rem;
   }
 }
 

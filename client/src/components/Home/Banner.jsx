@@ -2,11 +2,9 @@ import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import styles from "../../styles/BannerStyle.module.css";
 
-// icons
-import { MdKeyboardArrowRight } from "react-icons/md";
-
 // images
 import banner from "../../assets/banner/banner1.png";
+import MainButton from "../Custom/MainButton";
 
 const bannerData = [
   {
@@ -56,13 +54,14 @@ const Banner = () => {
             <div className={styles.desc}>
               <p>{data.desc}</p>
             </div>
-            <div style={{ display: "flex" }}>
-              <div style={{ display: "flex" }}>
+            <div className={styles.btn}>
+              {/* <div style={{ display: "flex" }}>
                 <button className={styles.getStartedBtn}>GET STARTED</button>
                 <p className={styles.getStartedBtnIcon}>
                   <MdKeyboardArrowRight />
                 </p>
-              </div>
+              </div> */}
+              <MainButton text="GET STARTED" style={{ marginRight: "1rem" }} />
               <button className={styles.findOutBtn}>FIND OUT MORE</button>
             </div>
           </div>
