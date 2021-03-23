@@ -1,5 +1,5 @@
 .features {
-  /* height: 590px; */
+  min-height: 590px;
   background: #3c444c;
   box-shadow: 0px 30px 40px rgba(0, 0, 0, 0.1);
   display: flex;

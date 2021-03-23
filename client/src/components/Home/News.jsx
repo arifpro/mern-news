@@ -11,7 +11,7 @@ const News = () => {
       <h1 className={styles.title}>Latest News</h1>
       <section style={{ display: "flex" }}></section>
 
-      <div class={styles.grid_container}>
+      <div className={styles.grid_container}>
         <NewsItem />
         <NewsItem />
         <NewsItem />
