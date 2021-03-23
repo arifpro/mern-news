@@ -9,7 +9,7 @@ import dribbble from "../../assets/icons/dribbble.png";
 // images
 import logo from "../../assets/logo/logo.png";
 
-const Navbar = (props) => {
+const Navbar = () => {
   return (
     <main className={styles.navbar}>
       {/* icons */}
@@ -35,39 +35,19 @@ const Navbar = (props) => {
       {/* nav items */}
       <section className={styles.navbar__navItemsSection}>
         <div className={styles.navbar__navItems}>
-          <NavLink
-            exact
-            to="/"
-            activeClassName={props.match.path === "/" && styles.selected}
-          >
+          <NavLink exact to="/" activeClassName={styles.selected}>
             Home
           </NavLink>
-          <NavLink
-            exact
-            to="/work"
-            activeClassName={props.match.path === "/work" && styles.selected}
-          >
+          <NavLink exact to="/work" activeClassName={styles.selected}>
             Work
           </NavLink>
-          <NavLink
-            exact
-            to="/about"
-            activeClassName={props.match.path === "/about" && styles.selected}
-          >
+          <NavLink exact to="/about" activeClassName={styles.selected}>
             About
           </NavLink>
-          <NavLink
-            exact
-            to="/blog"
-            activeClassName={props.match.path === "/blog" && styles.selected}
-          >
+          <NavLink exact to="/blog" activeClassName={styles.selected}>
             Blog
           </NavLink>
-          <NavLink
-            exact
-            to="/contact"
-            activeClassName={props.match.path === "/contact" && styles.selected}
-          >
+          <NavLink exact to="/contact" activeClassName={styles.selected}>
             Contact
           </NavLink>
         </div>

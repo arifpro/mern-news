@@ -24,7 +24,7 @@ const bannerData = [
   {
     id: "3",
     img: banner,
-    title: "Lorem Ipsum Dolor Sit Amet 2",
+    title: "Lorem Ipsum Dolor Sit Amet 3",
     desc:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 2",
   },
@@ -39,8 +39,8 @@ const Banner = () => {
         showStatus={false}
         useKeyboardArrows
         showArrows={true}
-        // autoPlay={true}
-        // infiniteLoop={true}
+        autoPlay={true}
+        infiniteLoop={true}
       >
         {bannerData?.map((data) => (
           <div
@@ -68,7 +68,7 @@ const Banner = () => {
         ))}
       </Carousel>
 
-      <style jsx>{`
+      <style>{`
         .control-arrow {
           top: 15rem !important;
           bottom: 15rem !important;
