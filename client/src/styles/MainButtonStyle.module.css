@@ -1,0 +1,19 @@
+.getStartedBtn {
+  border: none;
+  font-size: 0.8rem;
+  background: linear-gradient(90deg, #f27a54 -21.05%, #a154f2 121.05%);
+  border-radius: 20px;
+  color: #ffffff;
+}
+
+.getStartedBtnIcon {
+  margin-left: -50px;
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+}
+
+.getStartedBtnIcon svg {
+  width: 27px;
+  height: 27px;
+}
