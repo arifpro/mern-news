@@ -9,7 +9,20 @@
 .navbar__iconsSection {
   display: flex;
   justify-content: flex-end;
+  /* padding-top: 2rem; */
+}
+
+/* .navbar__accountSection {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 1rem;
+  margin-right: 29px;
+} */
+
+.navbar_firstSection {
   padding-top: 2rem;
+  display: flex;
+  justify-content: space-between;
 }
 
 .navbar__icons {
@@ -52,7 +65,7 @@
 }
 
 @media (max-width: 615px) {
-  .navbar__iconsSection {
+  .navbar_firstSection {
     justify-content: center;
     padding-top: 4rem;
     padding-bottom: 1rem;
@@ -61,7 +74,7 @@
     padding: 0 2rem;
     padding-bottom: 2rem;
   }
-  .navbar__logoSection {
+  .navbar__logoSection, .navbar__accountSection {
     display: none;
   }
 }

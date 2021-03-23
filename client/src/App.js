@@ -1,7 +1,4 @@
-import {
-  // Redirect,
-  Route,
-} from "react-router-dom";
+import { Redirect, Route } from "react-router-dom";
 
 // components
 import Home from "./components/Home";
@@ -10,10 +7,11 @@ import About from "./components/About";
 import Blog from "./components/Blog";
 import Contact from "./components/Contact";
 import NewsDetails from "./components/NewsDetails";
-import Dashboard from "./components/Dashboard";
 import { LoginDiv } from "./components/Auth/Login";
 import Layout from "./components/Layout";
 import ProtectedRoute from "./HOC/ProtectedRoute";
+import NewsDashboard from "./components/Dashboard/NewsDashboard";
+import BlogsDashboard from "./components/Dashboard/BlogsDashboard";
 
 const App = () => {
   return (
@@ -24,7 +22,9 @@ const App = () => {
       <Route exact path="/blog" component={Blog} />
       <Route exact path="/contact" component={Contact} />
       <Route exact path="/news/:slug" component={NewsDetails} />
-      <ProtectedRoute exact path="/dashboard" component={Dashboard} />
+      <ProtectedRoute exact path="/dashboard" component={NewsDashboard} />
+      <ProtectedRoute exact path="/dashboard/news" component={NewsDashboard} />
+      <ProtectedRoute exact path="/dashboard/blogs" component={BlogsDashboard} />
       <Route exact path="/account">
         <Layout>
           <div
@@ -39,7 +39,7 @@ const App = () => {
         </Layout>
       </Route>
 
-      {/* <Redirect to="/" /> */}
+      {/* <Redirect from="/dashboard" to="/dashboard/news" /> */}
     </>
   );
 };
