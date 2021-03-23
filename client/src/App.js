@@ -9,6 +9,8 @@ import Work from "./components/Work";
 import About from "./components/About";
 import Blog from "./components/Blog";
 import Contact from "./components/Contact";
+import NewsDetails from "./components/NewsDetails";
+import Dashboard from "./components/Dashboard";
 import { LoginDiv } from "./components/Auth/Login";
 import Layout from "./components/Layout";
 
@@ -20,6 +22,8 @@ const App = () => {
       <Route exact path="/about" component={About} />
       <Route exact path="/blog" component={Blog} />
       <Route exact path="/contact" component={Contact} />
+      <Route exact path="/news/:slug" component={NewsDetails} />
+      <Route exact path="/dashboard" component={Dashboard} />
       <Route exact path="/account">
         <Layout>
           <div

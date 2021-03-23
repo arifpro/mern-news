@@ -1,8 +1,7 @@
-import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import { isAuthenticate, isAdmin } from './fetchApi';
 
-const AdminProtectedRoute = ({ component: Component, ...rest }) => (
+const ProtectedRoute = ({ component: Component, ...rest }) => (
     <Route
         {...rest}
         render={(props) =>
@@ -11,7 +10,7 @@ const AdminProtectedRoute = ({ component: Component, ...rest }) => (
             ) : (
                 <Redirect
                     to={{
-                        pathname: '/admin-login',
+                        pathname: '/account',
                         state: { from: props.location },
                     }}
                 />
@@ -20,4 +19,4 @@ const AdminProtectedRoute = ({ component: Component, ...rest }) => (
     />
 );
 
-export default AdminProtectedRoute;
+export default ProtectedRoute;
