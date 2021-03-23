@@ -1,39 +1,35 @@
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 import styles from "../../styles/LayoutStyle.module.css";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
-import { NavLink } from "react-router-dom";
 
 // images & icons
 import logo from "../../assets/logo/logo.png";
-import {
-  IoHome,
-  IoExtensionPuzzle,
-  IoInformationCircle,
-} from "react-icons/io5";
+import { IoHome, IoExtensionPuzzle } from "react-icons/io5";
+import { FaBloggerB, FaUserAlt } from "react-icons/fa";
 import { SiWheniwork } from "react-icons/si";
-import { FaBloggerB } from "react-icons/fa";
 import { RiContactsBook2Fill } from "react-icons/ri";
-import { TiThMenu, TiInfo } from "react-icons/ti";
-// import { BiMenuAltRight } from "react-icons/bi";
-// import { CgMenuHotdog } from "react-icons/cg";
+import { TiInfo } from "react-icons/ti";
+import Login from "../Auth/Login";
 
 const Layout = (props) => {
   const [visible, setVisible] = useState(false);
+  const [viewLoginModal, setViewLoginModal] = useState(false);
 
   return (
     <div>
       {/* menubar */}
       <section className={styles.menubar}>
+        <FaUserAlt onClick={() => setViewLoginModal(true)} />
         <img src={logo} alt="logo" height="30px" />
-        {/* <TiThMenu onClick={() => setVisible(!visible)} /> */}
         <SiWheniwork onClick={() => setVisible(!visible)} />
-        {/* <p>
-          <BiMenuAltRight />
-          <CgMenuHotdog />
-          <span>Menu</span>
-        </p> */}
       </section>
+
+      <Login
+        viewLoginModal={viewLoginModal}
+        setViewLoginModal={setViewLoginModal}
+      />
 
       {visible && (
         <div className={styles.sidenav}>

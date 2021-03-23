@@ -61,4 +61,7 @@
     padding: 0 2rem;
     padding-bottom: 2rem;
   }
+  .navbar__logoSection {
+    display: none;
+  }
 }

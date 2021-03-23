@@ -1,10 +1,10 @@
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import styles from "../../styles/BannerStyle.module.css";
+import MainButton from "../Custom/MainButton";
 
 // images
 import banner from "../../assets/banner/banner1.png";
-import MainButton from "../Custom/MainButton";
 
 const bannerData = [
   {
@@ -26,7 +26,7 @@ const bannerData = [
     img: banner,
     title: "Lorem Ipsum Dolor Sit Amet 3",
     desc:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 2",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 3",
   },
 ];
 
