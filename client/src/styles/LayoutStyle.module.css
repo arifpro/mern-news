@@ -10,8 +10,8 @@
   position: fixed;
   width: 100%;
   z-index: 100;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
 }
 
 .menubar svg {
