@@ -13,6 +13,7 @@ import NewsDetails from "./components/NewsDetails";
 import Dashboard from "./components/Dashboard";
 import { LoginDiv } from "./components/Auth/Login";
 import Layout from "./components/Layout";
+import ProtectedRoute from "./HOC/ProtectedRoute";
 
 const App = () => {
   return (
@@ -23,7 +24,7 @@ const App = () => {
       <Route exact path="/blog" component={Blog} />
       <Route exact path="/contact" component={Contact} />
       <Route exact path="/news/:slug" component={NewsDetails} />
-      <Route exact path="/dashboard" component={Dashboard} />
+      <ProtectedRoute exact path="/dashboard" component={Dashboard} />
       <Route exact path="/account">
         <Layout>
           <div

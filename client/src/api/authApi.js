@@ -13,6 +13,7 @@ export const isAdmin = () =>
 
 export const loginReq = async ({ email, password }) => {
     const data = { email, password };
+
     try {
         const res = await axios.post(`${apiURL}/api/signin`, data);
         return res.data;
@@ -21,9 +22,11 @@ export const loginReq = async ({ email, password }) => {
     }
 };
 
-export const signupReq = async ({ name, email, password, cPassword }) => {
-    const data = { name, email, password, cPassword };
+export const signupReq = async ({ name, email, password }) => {
+    const data = { name, email, password };
+    
     try {
+        console.log(apiURL)
         const res = await axios.post(`${apiURL}/api/signup`, data);
         return res.data;
     } catch (error) {
