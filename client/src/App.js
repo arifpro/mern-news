@@ -24,7 +24,11 @@ const App = () => {
       <Route exact path="/news/:slug" component={NewsDetails} />
       <ProtectedRoute exact path="/dashboard" component={NewsDashboard} />
       <ProtectedRoute exact path="/dashboard/news" component={NewsDashboard} />
-      <ProtectedRoute exact path="/dashboard/blogs" component={BlogsDashboard} />
+      <ProtectedRoute
+        exact
+        path="/dashboard/blogs"
+        component={BlogsDashboard}
+      />
       <Route exact path="/account">
         <Layout>
           <div
