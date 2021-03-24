@@ -12,6 +12,7 @@
   z-index: 100;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
+  top: 0;
 }
 
 .menubar svg {
@@ -85,4 +86,6 @@
 
 .content {
   margin-left: 160px;
+  margin-top: 50px;
+  padding: 0 1rem;
 }
