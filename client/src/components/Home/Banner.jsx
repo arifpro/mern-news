@@ -47,7 +47,7 @@ const Banner = () => {
             key={`content-${data.id}`}
             className={styles.my_slide}
             style={{
-              background: `linear-gradient(90deg, #3C444C 0%, rgba(60, 68, 76, 0) 100%), url(${data.img}) no-repeat center`,
+              background: `linear-gradient(90deg, #3c444c 0%, rgba(60, 68, 76, 0) 100%), url(${data.img}) no-repeat center`,
             }}
           >
             <h1 className={styles.title}>{data.title}</h1>

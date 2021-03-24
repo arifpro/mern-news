@@ -1,15 +1,26 @@
-import { useState, createContext } from "react";
+import { useState, useEffect, createContext } from "react";
 import Modal from "react-modal";
-import "./style.css";
-import { loginReq } from "./fetchApi";
+import styles from "../../styles/LoginStyle.module.css";
+import {
+  loginReq,
+  signupReq,
+  isAuthenticate,
+  isAdmin,
+} from "../../api/authApi";
 
 // icons
 import { IoLockClosed, IoMail, IoPerson, IoClose } from "react-icons/io5";
 
 // images
-import facebook from '../../assets/loginIcons/facebook.jpg'
-import google from '../../assets/loginIcons/google.jpg'
-import linkedin from '../../assets/loginIcons/linkedin.jpg'
+import facebook from "../../assets/loginIcons/facebook.jpg";
+import google from "../../assets/loginIcons/google.jpg";
+import linkedin from "../../assets/loginIcons/linkedin.jpg";
+
+const validateEmail = (mail) => {
+  const regex = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
+  if (regex.test(mail)) return true;
+  else return false;
+};
 
 const customStyles = {
   content: {
@@ -44,138 +55,273 @@ const Login = (props) => {
 export const LoginDiv = (props) => {
   const [isLoginForm, setIsLoginForm] = useState(true);
 
+  useEffect(() => {
+    // if (isAuthenticate()) {
+    //   if (isAdmin()) {
+    //     window.location.href = "/dashboard";
+    //   }
+    // }
+
+    isAuthenticate() && isAdmin() && (window.location.href = "/dashboard");
+  }, []);
+
   // login
   const [data, setData] = useState({
+    name: "",
     email: "",
     password: "",
+    cPassword: "",
     error: false,
+    emailError: false,
+    passwordError: false,
     loading: true,
+    success: "",
   });
 
   const formSubmit = async () => {
-    setData({ ...data, loading: true });
-    try {
-      let responseData = await loginReq({
-        email: data.email,
-        password: data.password,
-      });
-      if (responseData.error) {
-        setData({
-          ...data,
-          loading: false,
-          error: responseData.error,
-          password: "",
-        });
-      } else if (responseData.token) {
-        setData({ email: "", password: "", loading: false, error: false });
-        localStorage.setItem("jwt", JSON.stringify(responseData));
-        window.location.href = "/";
+    if (isLoginForm && (data.email === "" || data.password === "")) {
+      alert("All field required.");
+    } else if (
+      !isLoginForm &&
+      (data.name === "" || data.email === "" || data.password === "")
+    ) {
+      alert("All field required.");
+    } else {
+      setData({ ...data, loading: true });
+      try {
+        let responseData;
+
+        if (isLoginForm) {
+          responseData = await loginReq({
+            email: data.email,
+            password: data.password,
+          });
+        } else {
+          responseData = await signupReq({
+            name: data.name,
+            email: data.email,
+            password: data.password,
+          });
+        }
+
+        if (responseData.success) {
+          setData({ ...data, success: responseData.success });
+        }
+
+        if (responseData.error) {
+          setData({
+            ...data,
+            loading: false,
+            error: responseData.error,
+            password: "",
+            cPassword: "",
+          });
+        } else if (responseData.token) {
+          setData({
+            name: "",
+            email: "",
+            password: "",
+            cPassword: "",
+            loading: false,
+            error: false,
+          });
+          localStorage.setItem("jwt", JSON.stringify(responseData));
+          window.location.href = "/dashboard";
+        }
+      } catch (error) {
+        console.log(error);
       }
-    } catch (error) {
-      console.log(error);
     }
   };
 
   return (
-    <>
-      <div className="navbar__login-div">
-        <div className="navbar__login-div-close">
-          {props.closeBtn && (
-            <button
-              type="button"
-              onClick={() => props.setViewLoginModal(false)}
-            >
-              <IoClose />
-            </button>
-          )}
-        </div>
-        <div className="navbar__logo" />
-        <div className="navbar__title">
-          {!isLoginForm ? "Signup " : "Login "}Form
-        </div>
-        <div className="navbar__sub-title">
-          Please fill all required fields!
-        </div>
-        <div className="navbar__fields">
-          {!isLoginForm && (
-            <div className="navbar__username">
-              <IoPerson />
-              <input
-                type="text"
-                className="navbar__user-input"
-                placeholder="name"
-              />
-            </div>
-          )}
-
-          <div className="navbar__username">
-            <IoMail />
+    <div className={styles.navbar__login_div}>
+      <div className={styles.navbar__login_div_close}>
+        {props.closeBtn && (
+          <button type="button" onClick={() => props.setViewLoginModal(false)}>
+            <IoClose />
+          </button>
+        )}
+      </div>
+      <div className={styles.navbar__logo} />
+      <div className={styles.navbar__title}>
+        {!isLoginForm ? "Signup " : "Login "}Form
+      </div>
+      <div className={styles.navbar__sub_title}>
+        Please fill all required fields!
+      </div>
+      <div className={styles.navbar__fields}>
+        {!isLoginForm && (
+          <div className={styles.navbar__username} style={{ marginBottom: 0 }}>
+            <IoPerson />
             <input
-              type="email"
-              className="navbar__user-input"
-              placeholder="email"
+              type="text"
+              className={styles.navbar__user_input}
+              placeholder="name"
               onChange={(e) => {
-                setData({ ...data, email: e.target.value, error: false });
+                setData({ ...data, name: e.target.value, error: false });
               }}
             />
           </div>
+        )}
+        {data.error.name && data.error.name !== "" && (
+          <p
+            style={{
+              marginTop: "5px",
+              textAlign: "center",
+              color: "#e22d2d",
+              fontWeight: "bold",
+            }}
+          >
+            {data.error.name}
+          </p>
+        )}
+        <p style={{ marginBottom: "26px" }}></p>
 
-          <div className="navbar__password">
+        <div className={styles.navbar__username} style={{ marginBottom: 0 }}>
+          <IoMail />
+          <input
+            type="email"
+            className={styles.navbar__user_input}
+            placeholder="email"
+            onChange={(e) => {
+              validateEmail(e.target.value)
+                ? setData({ ...data, email: e.target.value, emailError: false })
+                : setData({ ...data, email: e.target.value, emailError: true });
+            }}
+          />
+        </div>
+        {data.emailError && (
+          <p
+            style={{
+              marginTop: "5px",
+              textAlign: "center",
+              color: "#e22d2d",
+              fontWeight: "bold",
+            }}
+          >
+            Enter a valid email
+          </p>
+        )}
+        {data.error.email && data.error.email !== "" && (
+          <p
+            style={{
+              marginTop: "5px",
+              textAlign: "center",
+              color: "#e22d2d",
+              fontWeight: "bold",
+            }}
+          >
+            {data.error.email}
+          </p>
+        )}
+        <p style={{ marginBottom: "26px" }}></p>
+
+        <div className={styles.navbar__password} style={{ marginBottom: 0 }}>
+          <IoLockClosed />
+          <input
+            type="password"
+            className={styles.navbar__pass_input}
+            placeholder="password"
+            onChange={(e) => {
+              setData({ ...data, password: e.target.value, error: false });
+            }}
+          />
+        </div>
+        {data.error.password && data.error.password !== "" && (
+          <p
+            style={{
+              marginTop: "5px",
+              textAlign: "center",
+              color: "#e22d2d",
+              fontWeight: "bold",
+            }}
+          >
+            {data.error.password}
+          </p>
+        )}
+        <p style={{ marginBottom: "26px" }}></p>
+
+        {!isLoginForm && (
+          <div className={styles.navbar__password} style={{ marginBottom: 0 }}>
             <IoLockClosed />
             <input
               type="password"
-              className="navbar__pass-input"
-              placeholder="password"
+              className={styles.navbar__pass_input}
+              placeholder="confirm password"
               onChange={(e) => {
-                setData({ ...data, password: e.target.value, error: false });
+                data.password === e.target.value
+                  ? setData({
+                      ...data,
+                      cPassword: e.target.value,
+                      passwordError: false,
+                    })
+                  : setData({
+                      ...data,
+                      cPassword: e.target.value,
+                      passwordError: true,
+                    });
               }}
             />
           </div>
-          {!data.error ? "" : alert(data.error)}
-
-          {!isLoginForm && (
-            <div className="navbar__password">
-              <IoLockClosed />
-              <input
-                type="password"
-                className="navbar__pass-input"
-                placeholder="confirm password"
-              />
-            </div>
-          )}
-        </div>
-
-        <button
-          type="button"
-          className="navbar__signin-button"
-          onClick={(e) => formSubmit()}
-        >
-          {!isLoginForm ? "Signup" : "Login"}
-        </button>
-        <div className="navbar__link">
-          <p>
-            {!isLoginForm ? (
-              <button type="button" onClick={() => setIsLoginForm(true)}>
-                Already have an account? &nbsp;
-                <span style={{ fontWeight: "bold" }}>Login</span>
-              </button>
-            ) : (
-              <button type="button" onClick={() => setIsLoginForm(false)}>
-                New User? &nbsp;
-                <span style={{ fontWeight: "bold" }}>Signup</span>
-              </button>
-            )}
-          </p>
-        </div>
-        {isLoginForm && (
-          <div className="social__link">
-            <img src={facebook} alt="fb" />
-            <img src={google} alt="google" />
-            <img src={linkedin} alt="linkedin" />
-          </div>
         )}
+        {!isLoginForm && data.passwordError && (
+          <p
+            style={{
+              marginTop: "5px",
+              textAlign: "center",
+              color: "#e22d2d",
+              fontWeight: "bold",
+            }}
+          >
+            Password didn't match
+          </p>
+        )}
+        {data.success !== "" && (
+          <p
+            style={{
+              marginTop: "5px",
+              textAlign: "center",
+              color: "#0aaf41",
+              fontWeight: "bold",
+            }}
+          >
+            {data.success}
+          </p>
+        )}
+        <p style={{ marginBottom: "26px" }}></p>
       </div>
-    </>
+
+      <button
+        type="button"
+        className={styles.navbar__signin_button}
+        onClick={(e) => formSubmit()}
+      >
+        {!isLoginForm ? "Signup" : "Login"}
+      </button>
+      <div className={styles.navbar__link}>
+        <p>
+          {!isLoginForm ? (
+            <button type="button" onClick={() => setIsLoginForm(true)}>
+              Already have an account? &nbsp;
+              <span style={{ fontWeight: "bold" }}>Login</span>
+            </button>
+          ) : (
+            <button type="button" onClick={() => setIsLoginForm(false)}>
+              New User? &nbsp;
+              <span style={{ fontWeight: "bold" }}>Signup</span>
+            </button>
+          )}
+        </p>
+      </div>
+      {isLoginForm && (
+        <div className={styles.social__link}>
+          <img src={facebook} alt="fb" />
+          <img src={google} alt="google" />
+          <img src={linkedin} alt="linkedin" />
+        </div>
+      )}
+    </div>
   );
 };
 

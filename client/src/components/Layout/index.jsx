@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import styles from "../../styles/LayoutStyle.module.css";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
+import Login from "../Auth/Login";
 
 // images & icons
 import logo from "../../assets/logo/logo.png";
@@ -11,7 +12,6 @@ import { FaBloggerB, FaUserAlt } from "react-icons/fa";
 import { SiWheniwork } from "react-icons/si";
 import { RiContactsBook2Fill } from "react-icons/ri";
 import { TiInfo } from "react-icons/ti";
-import Login from "../Auth/Login";
 
 const Layout = (props) => {
   const [visible, setVisible] = useState(false);
