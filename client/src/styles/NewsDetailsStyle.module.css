@@ -50,10 +50,10 @@
   color: #ffffff;
 }
 
-.info aside p{
-    margin-left: 7px;
+.info aside p {
+  margin-left: 7px;
 }
 
-.info aside:first-child p{
-    margin-right: 2rem;
+.info aside:first-child p {
+  margin-right: 2rem;
 }

@@ -89,3 +89,46 @@
   margin-top: 50px;
   padding: 0 1rem;
 }
+
+/* <============== news dashboard ==============> */
+
+.addNewsBtn {
+  border: none;
+  background: black;
+  color: white;
+  font-weight: bold;
+  border-radius: 25px;
+  padding: 0.5rem 2rem;
+  outline: 0
+}
+
+.tableSection {
+  margin-top: 1rem;
+  border-radius: 15px;
+  border: 1px solid gray;
+}
+
+.tableSection table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.tableSection td,
+.tableSection th {
+  /* border: 1px solid gray; */
+  text-align: left;
+  padding: 8px;
+}
+
+.tableSection td:last-child,
+.tableSection th:last-child {
+  text-align: center;
+}
+
+.tableSection td:last-child {
+  font-size: 20px;
+}
+
+.tableSection tr:nth-child(even) {
+  background-color: #dddddd;
+}

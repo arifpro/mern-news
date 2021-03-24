@@ -73,12 +73,34 @@
   padding: 12px 0 12px 5px;
 }
 .navbar__username,
-.navbar__password {
+.navbar__password,
+.navbar__text {
   display: flex;
   margin-bottom: 30px;
   border-radius: 25px;
   box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #fff;
 }
+
+.navbar__text {
+  padding-top: 12px;
+  height: 42px;
+  font-size: 16px;
+}
+
+.navbar__text svg {
+  margin-top: -12px !important;
+}
+
+.navbar__text textarea {
+  border: none;
+  color: #555;
+  /* background: #ecf0f3; */
+  background: transparent;
+  outline: 0;
+  padding: -1px;
+  /* padding: 1px 0; */
+}
+
 .navbar__fields svg {
   /* height: 22px; */
   height: auto;
