@@ -2,8 +2,6 @@ import { useState } from "react";
 import styles from "../../../styles/LoginStyle.module.css";
 import NavField from "./NavField";
 import {
-  loginReq,
-  signupReq,
   isAuthenticate,
   isAdmin,
 } from "../../../api/authApi";
@@ -12,12 +10,14 @@ import {
 import { IoClose } from "react-icons/io5";
 import { HiDocumentText } from "react-icons/hi";
 import { BiText, BiLink, BiWorld } from "react-icons/bi";
+import { addNewsReq, editNewsReq } from "../../../api/newsApi";
 
 const AddNews = (props) => {
   const [isAddForm, setIsAddForm] = useState(true);
 
   // login
   const [data, setData] = useState({
+    id: "",
     title: "",
     url: "",
     newsSite: "",
@@ -28,58 +28,44 @@ const AddNews = (props) => {
   });
 
   const formSubmit = async () => {
-    if (isAddForm && (data.email === "" || data.password === "")) {
-      alert("All field required.");
-    } else if (
-      !isAddForm &&
-      (data.name === "" || data.email === "" || data.password === "")
-    ) {
-      alert("All field required.");
-    } else {
-      setData({ ...data, loading: true });
-      try {
-        let responseData;
+    if (isAuthenticate() && isAdmin()) {
+      if (isAddForm && (data.title === "" || data.url === "" || data.newsSite === "" || data.summary === "")) {
+        alert("All field required.");
+      } else {
+        setData({ ...data, loading: true });
+        try {
+          let responseData;
+          
+          if (isAddForm) {
+            responseData = await addNewsReq({
+              title: data.title,
+              url: data.url,
+              newsSite: data.newsSite,
+              summary: data.summary,
+            });
+          } else {
+            responseData = await editNewsReq({
+              id: data.id
+            });
+          }
+          
+          if (responseData.success) {
+            setData({ ...data, success: responseData.success, error: false });
+          }
 
-        if (isAddForm) {
-          responseData = await loginReq({
-            email: data.email,
-            password: data.password,
-          });
-        } else {
-          responseData = await signupReq({
-            name: data.name,
-            email: data.email,
-            password: data.password,
-          });
+          if (responseData.error) {            
+            setData({
+              ...data,
+              loading: false,
+              error: responseData.error,
+            });
+          }
+        } catch (error) {
+          console.log(error);
         }
-
-        if (responseData.success) {
-          setData({ ...data, success: responseData.success });
-        }
-
-        if (responseData.error) {
-          setData({
-            ...data,
-            loading: false,
-            error: responseData.error,
-            password: "",
-            cPassword: "",
-          });
-        } else if (responseData.token) {
-          setData({
-            name: "",
-            email: "",
-            password: "",
-            cPassword: "",
-            loading: false,
-            error: false,
-          });
-          localStorage.setItem("jwt", JSON.stringify(responseData));
-          window.location.href = "/dashboard";
-        }
-      } catch (error) {
-        console.log(error);
       }
+    } else {
+      setData({...data, error: "You must be logged in", loading: false})
     }
   };
 
@@ -102,19 +88,22 @@ const AddNews = (props) => {
         <NavField
           data={data}
           setData={setData}
-          name="News Title"
+          placeholder="News Title"
+          name="title"
           icon={<BiText />}
         />
         <NavField
           data={data}
           setData={setData}
-          name="News Link"
+          placeholder="News Link"
+          name="url"
           icon={<BiLink />}
         />
         <NavField
           data={data}
           setData={setData}
-          name="News Website Name"
+          placeholder="News Website Name"
+          name="newsSite"
           icon={<BiWorld />}
         />
 
@@ -122,9 +111,27 @@ const AddNews = (props) => {
           <HiDocumentText />
           <textarea
             placeholder="News Summary"
+            name="summary"
             className={styles.navbar__user_input}
+            onChange={(e) => setData({
+              ...data,
+              [e.target.name]: e.target.value,
+              error: false
+            })}
           />
         </div>
+        {data.error && data.error !== "" && (
+        <p
+          style={{
+            marginTop: "5px",
+            textAlign: "center",
+            color: "#e22d2d",
+            fontWeight: "bold",
+          }}
+        >
+          {data.error}
+        </p>
+      )}
         <p style={{ marginBottom: "26px" }}></p>
       </section>
 

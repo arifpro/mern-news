@@ -35,12 +35,6 @@ const NewsDashboard = () => {
     responseData.then((result) => setAllNews(result));
   }, []);
 
-  const test = "2021-03-23T18:13:02.357Z".split("T");
-  const date = test[0];
-  const time = test[1].split(".")[0];
-
-  console.log(`Date ${date}`, `Time ${time}`);
-
   return (
     <Dashboard>
       <button onClick={() => setViewModal(true)} className={styles.addNewsBtn}>
@@ -107,13 +101,13 @@ const NewsDashboard = () => {
                       <p>{updatedAt.split("T")[0]}</p>
                       <p>{updatedAt.split("T")[1].split(".")[0]}</p>
                     </td>
+                    <td>
+                      <RiEdit2Fill />
+                      <MdDelete />
+                    </td>
                   </>
                 )
               )}
-              <td>
-                <RiEdit2Fill />
-                <MdDelete />
-              </td>
             </tr>
           </tbody>
         </table>

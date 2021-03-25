@@ -1,6 +1,14 @@
 import styles from "../../../styles/LoginStyle.module.css";
 
-const NavField = ({ data, setData, name, icon }) => {
+const NavField = ({ data, setData, placeholder, icon, name }) => {
+  const onChangeHandle = (e) => {
+    setData({
+      ...data,
+      [e.target.name]: e.target.value,
+      error: false
+    })
+  }
+
   return (
     <>
       <div className={styles.navbar__username} style={{ marginBottom: 0 }}>
@@ -8,9 +16,10 @@ const NavField = ({ data, setData, name, icon }) => {
         <input
           type="text"
           className={styles.navbar__user_input}
-          placeholder={name}
+          placeholder={placeholder}
+          name={name}
           onChange={(e) => {
-            setData({ ...data, name: e.target.value, error: false });
+            onChangeHandle(e);
           }}
         />
       </div>

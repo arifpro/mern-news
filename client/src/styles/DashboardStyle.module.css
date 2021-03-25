@@ -107,7 +107,7 @@
 .tableSection {
   margin-top: 1rem;
   border-radius: 15px;
-  border: 1px solid #3c444c;
+  /* border: 1px solid #3c444c; */
 }
 
 .tableSection table {
@@ -160,6 +160,10 @@
 .tableSection tr:nth-child(even) {
   background-color: #dddddd;
 }
+
+/* .tableSection tbody tr {
+  background-color: #808080;
+} */
 
 .tableSection tbody tr:hover {
   background-color: #b1b1b1;
