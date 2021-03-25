@@ -60,55 +60,53 @@ const NewsDashboard = () => {
           </thead>
 
           <tbody>
-            <tr>
-              {allNews?.map(
-                (
-                  {
-                    _id: id,
-                    title,
-                    summary,
-                    newsSite,
-                    url,
-                    imageUrl,
-                    createdAt,
-                    updatedAt,
-                  },
-                  index
-                ) => (
-                  <>
-                    {/* <td>{id}</td> */}
-                    <td>{index + 1}</td>
-                    <td>{title.slice(0, 15) + "..."}</td>
-                    <td>{summary.slice(0, 15) + "..."}</td>
-                    <td>{newsSite}</td>
-                    <td>
-                      <a href={url} rel="noreferrer" target="_blank">
-                        click here
-                      </a>
-                    </td>
-                    <td>
-                      <img
-                        src={`${apiURL}/news/${imageUrl}`}
-                        alt={imageUrl}
-                        width="40px"
-                      />
-                    </td>
-                    <td>
-                      <p>{createdAt.split("T")[0]}</p>
-                      <p>{createdAt.split("T")[1].split(".")[0]}</p>
-                    </td>
-                    <td>
-                      <p>{updatedAt.split("T")[0]}</p>
-                      <p>{updatedAt.split("T")[1].split(".")[0]}</p>
-                    </td>
-                    <td>
-                      <RiEdit2Fill />
-                      <MdDelete />
-                    </td>
-                  </>
-                )
-              )}
-            </tr>
+            {allNews?.map(
+              (
+                {
+                  _id: id,
+                  title,
+                  summary,
+                  newsSite,
+                  url,
+                  imageUrl,
+                  createdAt,
+                  updatedAt,
+                },
+                index
+              ) => (
+                <tr>
+                  {/* <td>{id}</td> */}
+                  <td style={{ paddingLeft: "5px" }}>{index + 1}</td>
+                  <td>{title.slice(0, 15) + "..."}</td>
+                  <td>{summary.slice(0, 15) + "..."}</td>
+                  <td>{newsSite}</td>
+                  <td>
+                    <a href={url} rel="noreferrer" target="_blank">
+                      click here
+                    </a>
+                  </td>
+                  <td>
+                    <img
+                      src={`${apiURL}/news/${imageUrl}`}
+                      alt={imageUrl}
+                      width="40px"
+                    />
+                  </td>
+                  <td>
+                    <p>{createdAt.split("T")[0]}</p>
+                    <p>{createdAt.split("T")[1].split(".")[0]}</p>
+                  </td>
+                  <td>
+                    <p>{updatedAt.split("T")[0]}</p>
+                    <p>{updatedAt.split("T")[1].split(".")[0]}</p>
+                  </td>
+                  <td>
+                    <RiEdit2Fill />
+                    <MdDelete />
+                  </td>
+                </tr>
+              )
+            )}
           </tbody>
         </table>
       </section>
@@ -119,8 +117,9 @@ const NewsDashboard = () => {
         onRequestClose={() => setViewModal(false)}
         style={customStyles}
         contentLabel="Example Modal"
+        // `Modal.setAppElement(el)` or set `appElement={el}`. This is needed so screen readers don't see main content when modal is opened. It is not recommended, but you can opt-out by setting `ariaHideApp={false}`.
       >
-        <AddNews setViewModal={setViewModal} closeBtn={true} />
+        <AddNews setViewModal={setViewModal} closeBtn={true} setAllNews={setAllNews} />
       </Modal>
     </Dashboard>
   );

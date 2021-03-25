@@ -151,14 +151,20 @@
 .tableSection td:last-child svg:first-child {
   color: #008000;
   margin-right: 10px;
+  cursor: pointer;
 }
 
 .tableSection td:last-child svg:last-child {
   color: #b30000;
+  cursor: pointer;
 }
 
-.tableSection tr:nth-child(even) {
+.tableSection tbody tr:nth-child(even) {
   background-color: #dddddd;
+}
+
+.tableSection tbody tr:nth-child(odd) {
+  background-color: #f0f0f0;
 }
 
 /* .tableSection tbody tr {
