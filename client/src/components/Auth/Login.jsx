@@ -35,7 +35,7 @@ const customStyles = {
   },
 };
 
-export const LayoutContext = createContext();
+// export const LayoutContext = createContext();
 
 const Login = (props) => {
   const { viewLoginModal, setViewLoginModal } = props;

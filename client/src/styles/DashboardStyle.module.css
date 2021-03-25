@@ -88,6 +88,7 @@
   margin-left: 160px;
   margin-top: 50px;
   padding: 0 1rem;
+  font-family: "Comic Sans MS";
 }
 
 /* <============== news dashboard ==============> */
@@ -99,13 +100,14 @@
   font-weight: bold;
   border-radius: 25px;
   padding: 0.5rem 2rem;
-  outline: 0
+  outline: 0;
+  font-family: "Comic Sans MS";
 }
 
 .tableSection {
   margin-top: 1rem;
   border-radius: 15px;
-  border: 1px solid gray;
+  /* border: 1px solid #3c444c; */
 }
 
 .tableSection table {
@@ -117,7 +119,24 @@
 .tableSection th {
   /* border: 1px solid gray; */
   text-align: left;
-  padding: 8px;
+  /* padding: 8px; */
+}
+
+.tableSection thead {
+  background-color: #3c444c;
+  color: white;
+}
+
+.tableSection thead th {
+  padding: 10px 5px;
+}
+
+.tableSection th:first-child {
+  border-radius: 10px 0 0 0;
+}
+
+.tableSection th:last-child {
+  border-radius: 0 10px 0 0;
 }
 
 .tableSection td:last-child,
@@ -129,6 +148,29 @@
   font-size: 20px;
 }
 
-.tableSection tr:nth-child(even) {
+.tableSection td:last-child svg:first-child {
+  color: #008000;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.tableSection td:last-child svg:last-child {
+  color: #b30000;
+  cursor: pointer;
+}
+
+.tableSection tbody tr:nth-child(even) {
   background-color: #dddddd;
+}
+
+.tableSection tbody tr:nth-child(odd) {
+  background-color: #f0f0f0;
+}
+
+/* .tableSection tbody tr {
+  background-color: #808080;
+} */
+
+.tableSection tbody tr:hover {
+  background-color: #b1b1b1;
 }
