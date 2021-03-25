@@ -74,7 +74,8 @@
     padding: 0 2rem;
     padding-bottom: 2rem;
   }
-  .navbar__logoSection, .navbar__accountSection {
+  .navbar__logoSection,
+  .navbar__accountSection {
     display: none;
   }
 }
