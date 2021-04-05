@@ -1,4 +1,4 @@
-import { useState, useEffect, createContext } from "react";
+import { useState, useEffect } from "react";
 import Modal from "react-modal";
 import styles from "../../styles/LoginStyle.module.css";
 import {
@@ -35,7 +35,6 @@ const customStyles = {
   },
 };
 
-// export const LayoutContext = createContext();
 
 const Login = (props) => {
   const { viewLoginModal, setViewLoginModal } = props;

@@ -29,6 +29,8 @@ const apiURL = process.env.REACT_APP_API_URL;
 const NewsDashboard = () => {
   const [viewModal, setViewModal] = useState(false);
   const [allNews, setAllNews] = useState(null);
+  const [isAddForm, setIsAddForm] = useState(true);
+  const [selectedNews, setSelectedNews] = useState(null);
 
   useEffect(() => {
     const responseData = allNewsReq();
@@ -74,12 +76,12 @@ const NewsDashboard = () => {
                 },
                 index
               ) => (
-                <tr>
+                <tr key={id}>
                   {/* <td>{id}</td> */}
                   <td style={{ paddingLeft: "5px" }}>{index + 1}</td>
-                  <td>{title.slice(0, 15) + "..."}</td>
-                  <td>{summary.slice(0, 15) + "..."}</td>
-                  <td>{newsSite}</td>
+                  <td>{title.length > 10 ? title.slice(0, 12) + "..." : title }</td>
+                  <td>{summary.length > 10 ? summary.slice(0, 12) + "..." : summary }</td>
+                  <td>{newsSite.length > 10 ? newsSite.slice(0, 12) + "..." : newsSite }</td>
                   <td>
                     <a href={url} rel="noreferrer" target="_blank">
                       click here
@@ -101,7 +103,22 @@ const NewsDashboard = () => {
                     <p>{updatedAt.split("T")[1].split(".")[0]}</p>
                   </td>
                   <td>
-                    <RiEdit2Fill />
+                    <RiEdit2Fill
+                      onClick={() => {
+                        setIsAddForm(false);
+                        setSelectedNews({
+                          _id: id,
+                          title,
+                          summary,
+                          newsSite,
+                          url,
+                          imageUrl,
+                          createdAt,
+                          updatedAt,
+                        });
+                        setViewModal(true);
+                      }}
+                    />
                     <MdDelete />
                   </td>
                 </tr>
@@ -119,7 +136,13 @@ const NewsDashboard = () => {
         contentLabel="Example Modal"
         // `Modal.setAppElement(el)` or set `appElement={el}`. This is needed so screen readers don't see main content when modal is opened. It is not recommended, but you can opt-out by setting `ariaHideApp={false}`.
       >
-        <AddNews setViewModal={setViewModal} closeBtn={true} setAllNews={setAllNews} />
+        <AddNews
+          setViewModal={setViewModal}
+          closeBtn={true}
+          setAllNews={setAllNews}
+          isAddForm={isAddForm}
+          selectedNews={selectedNews}
+        />
       </Modal>
     </Dashboard>
   );

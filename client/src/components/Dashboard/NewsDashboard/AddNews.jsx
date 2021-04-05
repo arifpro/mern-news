@@ -11,7 +11,8 @@ import { BiText, BiLink, BiWorld } from "react-icons/bi";
 import { BsImage } from "react-icons/bs";
 
 const AddNews = (props) => {
-  const [isAddForm, setIsAddForm] = useState(true);
+
+  const {isAddForm} = props;
 
   // login
   const [data, setData] = useState({
